@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrasi dan List Pendaftar</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="body">
+    <!-- navbar(tab) -->
+    <nav class="navbar">
+      <form class="container-fluid justify-content-center">
+        <button
+          class="btn btn-outline-dark me-2"
+          type="button"
+          onclick="changeTab('Registrasi')"
+        >
+          Registrasi
+        </button>
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          onclick="changeTab('ListPendaftar')"
+        >
+          List Pendaftar
+        </button>
+      </form>
+    </nav>
+    <!-- Form Registrasi -->
+    <div id="Registrasi" class="tab active-tab">
+      <div class="card bg-body-secondary text-center mt-5 mx-auto w-50">
+        <div class="card-header">
+          <h2 class="text-center">Form Registrasi</h2>
+        </div>
+        <form id="registrationForm" onsubmit="return inputValidation()">
+          <div class="card-body text-center">
+            <label for="nama"><strong>Nama :</strong></label>
+            <input
+              class="rounded-2"
+              type="text"
+              id="nama"
+              name="nama"
+              required
+              minlength="10"
+              placeholder="Minimal 10 karakter"
+            /><br /><br />
+
+            <label for="umur"><strong>Umur :</strong></label>
+            <input
+              class="rounded-2"
+              type="number"
+              id="umur"
+              name="umur"
+              required
+              min="25"
+              placeholder="Minimal 25 Tahun"
+            /><br /><br />
+
+            <label for="uangsangu"><strong>Uang Saku :</strong></label
+            ><br />
+            <label><strong>Rp.</strong></label>
+            <input
+              class="rounded-2"
+              type="number"
+              id="uangsangu"
+              name="uangsangu"
+              required
+              min="100000"
+              max="1000000"
+              placeholder="MIN 100 ribu dan MAX 1 juta"
+              style="width: 225px"
+            /><br /><br />
+          </div>
+          <div class="card-footer text-body-secondary">
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Table Pendaftar -->
+    <div id="ListPendaftar" class="tab">
+      <div class="card text-center mt-5 mx-auto w-50">
+        <div class="card-header bg-body-secondary">
+          <h2 class="text-center">List Pendaftar</h2>
+        </div>
+        <div class="card-body">
+          <table class="daftar table table-hover w-75 mx-auto table-secondary">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Uang Saku</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="pendaftarTable">
+              <!-- list daftar peserta -->
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer text-body-secondary">
+          <div class="text-center">
+            <h4>Statistik Pendaftar</h4>
+            <p>
+              Rata-rata pendaftar memiliki uang saku sebesar
+              <span id="rataRataUangSangu">0</span> dengan rata-rata umur
+              <span id="rataRataUmur">0</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="tab.js"></script>
+    <script src="data.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

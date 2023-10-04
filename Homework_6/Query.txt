@@ -1,0 +1,62 @@
+### CREATE TABLE ###
+
+CREATE TABLE KategoriBarang (
+    id_kategori SERIAL PRIMARY KEY,
+    nama_kategori VARCHAR(255) NOT NULL
+);
+CREATE TABLE Barang (
+    id_barang SERIAL PRIMARY KEY,
+    nama_barang VARCHAR(255) NOT NULL,
+    harga_barang VARCHAR(255) NOT NULL,
+    stok_barang INT NOT NULL,
+    tanggal_ditambahkan TIMESTAMP DEFAULT NOW(),
+    id_kategori INT REFERENCES KategoriBarang(id_kategori)
+);
+
+### SELECT TABLE ###
+
+# BARANG 
+SELECT * FROM Barang;
+
+# KategoriBarang
+SELECT * FROM KategoriBarang;
+
+### INSERT VALUE ###
+
+# KategoriBarang;
+INSERT INTO KategoriBarang (nama_kategori)
+VALUES ('Keyboard'),('Mouse'),('Headset'),('Monitor'),('Speaker');
+
+# Barang
+INSERT INTO Barang (nama_barang, harga_barang, stok_barang, id_kategori)
+VALUES
+    ('Keyboard TKL V2.0', '2,000,000', 50, (SELECT id_kategori FROM KategoriBarang WHERE nama_kategori = 'Keyboard')),
+    ('Mouse Rune V4.0', '850,000', 75, (SELECT id_kategori FROM KategoriBarang WHERE nama_kategori = 'Mouse')),
+    ('Headset Luna 7.1', '650,000', 30, (SELECT id_kategori FROM KategoriBarang WHERE nama_kategori = 'Headset')),
+    ('MonitorG234 165Hz FHD', '2,800,000', 20, (SELECT id_kategori FROM KategoriBarang WHERE nama_kategori = 'Monitor')),
+    ('Speaker stereo C435', '185,000', 40, (SELECT id_kategori FROM KategoriBarang WHERE nama_kategori = 'Speaker')),
+    ('Headset Velio v5.0', '660,000', 50, (SELECT id_kategori FROM KategoriBarang WHERE nama_kategori = 'Headset')),
+    ('MonitorV543 144Hz FHD', '1,350,000', 45, (SELECT id_kategori FROM KategoriBarang WHERE nama_kategori = 'Monitor'));
+
+### UPDATE VALUE ###
+# Barang
+UPDATE Barang
+SET harga_barang = '2,500,000'
+WHERE id_barang = 1;
+
+#Kategori Barang
+UPDATE KategoriBarang
+SET nama_kategori = 'Pengeras Suara'
+WHERE id_kategori = 5;
+
+### JOIN RELASI ANTAR TABLE ###
+SELECT Barang.id_barang, Barang.nama_barang, Barang.harga_barang, Barang.stok_barang, KategoriBarang.nama_kategori
+FROM Barang
+INNER JOIN KategoriBarang ON Barang.id_kategori = KategoriBarang.id_kategori
+ORDER BY Barang.id_barang;
+
+
+
+
+
+

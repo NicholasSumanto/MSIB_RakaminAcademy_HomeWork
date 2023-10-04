@@ -1,0 +1,26 @@
+/* Tab */
+.tab {
+    display: none;
+}
+
+.active-tab {
+    display: block;
+}
+
+/* coloring */
+.body {
+    background-color: #27374D;
+}
+
+.navbar{
+    background-color: #9DB2BF;
+}
+.card-body{
+    background-color: #9DB2BF;
+}
+
+
+
+
+
+

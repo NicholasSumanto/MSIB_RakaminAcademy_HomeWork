@@ -1,0 +1,52 @@
+body{
+      background-color: #F8F0E5;
+}
+.navbar-brand{
+      font-family: "brush script mt";
+      font-size: 2em;
+      
+}
+.titleintro{
+      font-family: "brush script mt";
+      font-size: 3em;
+      text-align: center;
+}
+.navbar{
+      background-color: #DAC0A3;
+
+}
+.card-img-overlay {
+      opacity: 0; 
+      transition: opacity 0.3s ease; 
+    }
+    
+    .card:hover .card-img-overlay {
+      opacity: 1; 
+      background-color: rgba(0, 0, 0, 0.5); 
+      color: white; 
+    }
+img{
+      height: 400px;
+      border-radius: 5px;
+}
+
+.sub{
+      color: #DAC0A3;
+}
+
+footer{
+      background-color: #DAC0A3;
+      color: black;
+      padding: 1em;
+      text-align: center;
+      margin-top: 3em;
+}
+
+
+
+
+
+
+
+
+
