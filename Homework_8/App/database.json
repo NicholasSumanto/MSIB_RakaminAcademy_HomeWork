@@ -1,0 +1,11 @@
+{
+    "dev": {
+      "driver": "pg",
+      "user": "postgres",
+      "host": "localhost",
+      "database": "kumpulan_film",
+      "password": "skyres123",
+      "port": 5432
+    }
+  }
+  
