@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 require('dotenv').config(); // Load the dotenv library
 
+// Masih error bagian auth
 // login dan Register endpoiint
 // app.post('/login', authController.login);
 // app.post('/register', authController.register);
