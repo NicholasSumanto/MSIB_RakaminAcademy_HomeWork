@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Movies</title>
+</head>
+<body>
+    <h1>List of Movies</h1>
+    <ul>
+        <% movies.forEach(function(movie) { %>
+            <li>
+                <p><strong>Title:</strong> <%= movie.title %></p>
+                <p><strong>Genres:</strong> <%= movie.genres %></p>
+                <p><strong>Year:</strong> <%= movie.year %></p>
+                <% if(movie.photo) { %>
+                    <p><%= movie.photo %></p>
+                <% } else { %>
+                    <p>no photo yet!</p>
+                <% } %>
+                <form action="/movies/<%= movie.id %>/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="photo" accept="image/*">
+                    <input type="submit" value="Upload">
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
