@@ -130,7 +130,7 @@ function calculateStatus(winner, squares, nextValue) {
       <Text>
           Scratch:
           <Text color="gray">
-          {squares}
+          Cat's game`s
           </Text>
       </Text>
     );
